@@ -11,11 +11,14 @@ jobs:
     steps:      
       - uses: actions/checkout@v3
       
-      # Ensure Node.js 18.x is installed
+      # Ensure Node.js 18.x is used
       - name: Set up Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+
+      - name: Debug Node.js Version
+        run: node -v  # Ensure it outputs v18.x
 
       - name: Validate Data Factory resources
         uses: Azure/data-factory-validate-action@v1.1.5
