@@ -1,0 +1,17 @@
+{
+	"name": "Trg_scd_01",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2025-02-16T11:15:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
