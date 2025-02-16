@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "batch15-dev-adf-01"
+		},
+		"dev_sql_01_password": {
+			"value": ""
+		},
+		"dev_sql_01_properties_typeProperties_server": {
+			"value": "batch15sqlserver.database.windows.net"
+		},
+		"dev_sql_01_properties_typeProperties_database": {
+			"value": "batch15sqldb"
+		},
+		"dev_sql_01_properties_typeProperties_userName": {
+			"value": "sivaadmin"
+		}
+	}
+}
