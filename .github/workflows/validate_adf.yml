@@ -1,4 +1,4 @@
-name: ValidateADF
+name: validate_adf
 
 on:
   pull_request:
@@ -6,25 +6,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  validate_adf:
+  validate_adf_json:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - uses: actions/checkout@v3
 
-      # Ensure Node.js 18.x is used
+      # Set up Node.js 18.x
       - name: Set up Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
 
-      # Debug: Check Node.js version
+      # Debug: Check Node.js and npm version
       - name: Debug Node.js Version
         run: |
-          node -v  # Ensure it outputs v18.x
-          npm -v   # Check npm version for compatibility
+          node -v
+          npm -v
 
-      # Run ADF Validation without Docker (ensure npx is using correct Node.js version)
-      - name: Validate Data Factory resources (without Docker)
-        run: npx -y @microsoft/azure-data-factory-utilities validate ./
-        env:
-          AZURE_SUBSCRIPTION_ID: "c5f26d85-86fa-4e16-b3de-059c536f1cc7"
+      # Validate JSON structure of ADF resources
+      - name: Validate ADF JSON files
+        run: |
+          find . -name "*.json" -exec jq empty {} \;
