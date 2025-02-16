@@ -10,18 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:      
       - uses: actions/checkout@v3
-      
+
       # Ensure Node.js 18.x is used
       - name: Set up Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
 
+      # Debug: Check Node.js version
       - name: Debug Node.js Version
-        run: node -v  # Ensure it outputs v18.x
+        run: |
+          node -v  # Ensure it outputs v18.x
+          npm -v   # Check npm version for compatibility
 
-      - name: Validate Data Factory resources
-        uses: Azure/data-factory-validate-action@v1.1.5
-        with:
-          path: ./
-          id: /subscriptions/c5f26d85-86fa-4e16-b3de-059c536f1cc7/resourceGroups/batch15rsg/providers/Microsoft.DataFactory/factories/batch15-dev-adf-01
+      # Run ADF Validation without Docker (ensure npx is using correct Node.js version)
+      - name: Validate Data Factory resources (without Docker)
+        run: npx -y @microsoft/azure-data-factory-utilities validate ./
+        env:
+          AZURE_SUBSCRIPTION_ID: "c5f26d85-86fa-4e16-b3de-059c536f1cc7"
