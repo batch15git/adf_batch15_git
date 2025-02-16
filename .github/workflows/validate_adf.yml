@@ -1,4 +1,4 @@
-name: validate_adf
+name: ValidateADFJson
 
 on:
   pull_request:
@@ -24,6 +24,11 @@ jobs:
           npm -v
 
       # Validate JSON structure of ADF resources
-      - name: Validate ADF JSON files
+      - name: Validate JSON Files
         run: |
           find . -name "*.json" -exec jq empty {} \;
+
+      # Validate ADF JSON files using Microsoft Data Factory Utilities (No Azure Login)
+      - name: Validate ADF Resources (Offline)
+        run: |
+          npx -y @microsoft/azure-data-factory-utilities validate ./
