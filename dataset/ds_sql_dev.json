@@ -1,0 +1,63 @@
+{
+	"name": "ds_sql_dev",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dev_sql_01",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"servername": {
+					"value": "@dataset().server",
+					"type": "Expression"
+				},
+				"databasename": {
+					"value": "@dataset().dbname",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"server": {
+				"type": "string",
+				"defaultValue": "batch15sqlserver.database.windows.net"
+			},
+			"dbname": {
+				"type": "string",
+				"defaultValue": "batch15sqldb"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "product_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "product_name",
+				"type": "varchar"
+			},
+			{
+				"name": "category_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "price",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "batch15sc",
+			"table": "products"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
