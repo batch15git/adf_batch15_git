@@ -5,11 +5,14 @@
 		"factoryName": {
 			"value": "batch15-dev-adf-01"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"dev_sql_01_password": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"value": ""
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "@{linkedService().storageaccount}"
 		},
 		"dev_sql_01_properties_typeProperties_server": {
 			"value": "@{linkedService().servername}"
@@ -19,9 +22,6 @@
 		},
 		"dev_sql_01_properties_typeProperties_userName": {
 			"value": "sivaadmin"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"value": "@{linkedService().storageaccount}"
 		},
 		"containerUri": {
 			"value": ""
