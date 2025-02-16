@@ -8,14 +8,20 @@
 		"dev_sql_01_password": {
 			"value": ""
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"dev_sql_01_properties_typeProperties_server": {
-			"value": "batch15sqlserver.database.windows.net"
+			"value": "@{linkedService().servername}"
 		},
 		"dev_sql_01_properties_typeProperties_database": {
-			"value": "batch15sqldb"
+			"value": "@{linkedService().databasename}"
 		},
 		"dev_sql_01_properties_typeProperties_userName": {
 			"value": "sivaadmin"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "@{linkedService().storageaccount}"
 		},
 		"containerUri": {
 			"value": ""
