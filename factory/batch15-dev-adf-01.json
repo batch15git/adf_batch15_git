@@ -1,0 +1,12 @@
+{
+	"name": "batch15-dev-adf-01",
+	"properties": {
+		"globalParameters": {
+			"server_name": {
+				"type": "string",
+				"value": "batch15sqlserver.database.windows.net"
+			}
+		}
+	},
+	"location": "eastus2"
+}
