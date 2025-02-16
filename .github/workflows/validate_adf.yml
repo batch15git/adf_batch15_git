@@ -24,4 +24,4 @@ jobs:
         uses: Azure/data-factory-validate-action@v1.1.5
         with:
           path: ./
-          id: /subscriptions/${{ secrets.AZURE_SUBSCRIPTION_ID }}/resourceGroups/batch15rsg/providers/Microsoft.DataFactory/factories/batch15-dev-adf-01
+          id: /subscriptions/c5f26d85-86fa-4e16-b3de-059c536f1cc7/resourceGroups/batch15rsg/providers/Microsoft.DataFactory/factories/batch15-dev-adf-01
